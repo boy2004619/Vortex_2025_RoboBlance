@@ -1,0 +1,149 @@
+T3610 000:380.499   SEGGER J-Link V7.92k Log File
+T3610 000:385.214   DLL Compiled: Oct 18 2023 14:58:31
+T3610 000:385.225   Logging started @ 2024-05-06 02:51
+T3610 000:385.233   Process: D:\kile5\UV4\UV4.exe
+T3610 000:385.699 - 385.241ms
+T3610 000:385.928 JLINK_SetWarnOutHandler(...)
+T3610 000:385.942 - 0.220ms
+T3610 000:385.954 JLINK_OpenEx(...)
+T3610 000:397.415   Firmware: J-Link ARM V8 compiled Nov 28 2014 13:44:46
+T3610 000:397.895   Firmware: J-Link ARM V8 compiled Nov 28 2014 13:44:46
+T3610 000:400.616   Hardware: V8.00
+T3610 000:400.640   S/N: 788594195
+T3610 000:400.650   OEM: SEGGER
+T3610 000:400.660   Feature(s): RDI,FlashDL,FlashBP,JFlash,GDB
+T3610 000:401.410   Bootloader: (Could not read)
+T3610 000:429.234   TELNET listener socket opened on port 19021
+T3610 000:429.469   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T3610 000:429.601   WEBSRV Failed to put socket into listener state (port 19080)
+T3610 000:429.750   WEBSRV Webserver running on local port 19081
+T3610 000:429.896   Looking for J-Link GUI Server exe at: D:\kile5\ARM\Segger\JLinkGUIServer.exe
+T3610 000:430.079   Looking for J-Link GUI Server exe at: D:\SEGGER\JLink_V722b\JLinkGUIServer.exe
+T3610 000:430.154   Forking J-Link GUI Server: D:\SEGGER\JLink_V722b\JLinkGUIServer.exe
+T3610 000:734.561   J-Link GUI Server info: "J-Link GUI server V7.22b "
+T3610 000:734.734   J-Link GUI Server: Connection breakdown.
+T3610 000:735.024 - 348.797ms returns "O.K."
+T3610 000:735.101 JLINK_GetEmuCaps()
+T3610 000:735.329 - 0.015ms returns 0xB9FF7BBF
+T3610 000:735.356 JLINK_TIF_GetAvailable(...)
+T3610 000:735.920 - 0.562ms
+T3610 000:735.993 JLINK_SetErrorOutHandler(...)
+T3610 000:736.007 - 0.013ms
+T3610 000:736.344 JLINK_ExecCommand("ProjectFile = "D:\File_D\Wheel_Leg_Ready\RobotBalance\MDK-ARM\JLinkSettings.ini"", ...). 
+T3610 000:785.817 - 49.474ms returns 0x00
+T3610 000:785.859 JLINK_ExecCommand("Device = STM32H723VGTx", ...). 
+T3610 000:791.360   Flash bank @ 0x90000000: SFL: Parsing sectorization info from ELF file
+T3610 000:791.388     FlashDevice.SectorInfo[0]: .SectorSize = 0x00010000, .SectorStartAddr = 0x00000000
+T3610 000:802.753   Device "STM32H723VG" selected.
+T3610 000:803.773 - 17.882ms returns 0x00
+T3610 000:804.011 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T3610 000:804.445 - 0.004ms returns 0x01
+T3610 000:804.462 JLINK_GetHardwareVersion()
+T3610 000:804.473 - 0.011ms returns 80000
+T3610 000:804.503 JLINK_GetDLLVersion()
+T3610 000:804.515 - 0.011ms returns 79211
+T3610 000:804.527 JLINK_GetOEMString(...)
+T3610 000:804.539 JLINK_GetFirmwareString(...)
+T3610 000:804.548 - 0.009ms
+T3610 000:804.571 JLINK_GetDLLVersion()
+T3610 000:804.582 - 0.010ms returns 79211
+T3610 000:804.800 JLINK_GetCompileDateTime()
+T3610 000:804.821 - 0.021ms
+T3610 000:804.880 JLINK_GetFirmwareString(...)
+T3610 000:804.898 - 0.018ms
+T3610 000:804.912 JLINK_GetHardwareVersion()
+T3610 000:804.922 - 0.009ms returns 80000
+T3610 000:804.935 JLINK_GetSN()
+T3610 000:804.946 - 0.010ms returns 788594195
+T3610 000:804.959 JLINK_GetOEMString(...)
+T3610 000:804.976 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T3610 000:825.062 - 20.081ms returns 0x00
+T3610 000:825.171 JLINK_HasError()
+T3610 000:825.649 JLINK_SetSpeed(50000)
+T3610 000:826.252 - 0.606ms
+T3610 000:827.160 JLINK_HasError()
+T3610 000:827.206 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T3610 000:827.224 - 0.017ms returns JLINKARM_RESET_TYPE_NORMAL
+T3610 000:827.237 JLINK_Reset()
+T3610 000:828.098   ConfigTargetSettings() start
+T3610 000:828.131    J-Link Script File: Executing ConfigTargetSettings()
+T3610 000:828.645   ConfigTargetSettings() end - Took 290us
+T3610 000:828.677   InitTarget() start
+T3610 000:828.691    J-Link Script File: Executing InitTarget()
+T3610 000:828.998   SWD selected. Executing JTAG -> SWD switching sequence.
+T3610 000:833.688   DAP initialized successfully.
+T3610 000:868.882   InitTarget() end - Took 40.1ms
+T3610 000:869.780   Found SW-DP with ID 0x6BA02477
+T3610 000:878.307   Old FW that does not support reading DPIDR via DAP jobs
+T3610 000:883.305   DPv0 detected
+T3610 000:883.331   CoreSight SoC-400 or earlier
+T3610 000:883.343   Scanning AP map to find all available APs
+T3610 000:892.881   AP[3]: Stopped AP scan as end of AP map has been reached
+T3610 000:893.205   AP[0]: AHB-AP (IDR: 0x84770001)
+T3610 000:893.224   AP[1]: AHB-AP (IDR: 0x84770001)
+T3610 000:893.235   AP[2]: APB-AP (IDR: 0x54770002)
+T3610 000:893.245   Iterating through AP map to find AHB-AP to use
+T3610 000:898.424   AP[0]: Core found
+T3610 000:898.450   AP[0]: AHB-AP ROM base: 0xE00FE000
+T3610 000:901.200   CPUID register: 0x411FC272. Implementer code: 0x41 (ARM)
+T3610 000:907.429   Cache: L1 I/D-cache present
+T3610 000:907.756   Found Cortex-M7 r1p2, Little endian.
+T3610 000:908.485   -- Max. mem block: 0x00002408
+T3610 000:909.050   
+  ***** Error: 
+T3610 000:909.074   Failed to initialize CPU module in firmware because probe is low on memory (heap).
+T3610 000:909.518   Connect fallback: Reset via Reset pin & Connect.
+T3610 000:967.047   ConfigTargetSettings() start
+T3610 000:967.085    J-Link Script File: Executing ConfigTargetSettings()
+T3610 000:967.121   ConfigTargetSettings() end - Took 32us
+T3610 000:967.148   InitTarget() start
+T3610 000:967.168    J-Link Script File: Executing InitTarget()
+T3610 000:967.404   SWD selected. Executing JTAG -> SWD switching sequence.
+T3610 000:974.589   DAP initialized successfully.
+T3610 000:997.285   InitTarget() end - Took 30.1ms
+T3610 000:997.994   Found SW-DP with ID 0x6BA02477
+T3610 001:002.647   Old FW that does not support reading DPIDR via DAP jobs
+T3610 001:010.432   DPv0 detected
+T3610 001:010.470   CoreSight SoC-400 or earlier
+T3610 001:010.484   AP map detection skipped. Manually configured AP map found.
+T3610 001:010.496   AP[0]: AHB-AP (IDR: Not set)
+T3610 001:015.784   AP[0]: Core found
+T3610 001:015.810   AP[0]: AHB-AP ROM base: 0xE00FE000
+T3610 001:018.437   CPUID register: 0x411FC272. Implementer code: 0x41 (ARM)
+T3610 001:024.633   Cache: L1 I/D-cache present
+T3610 001:024.692   Found Cortex-M7 r1p2, Little endian.
+T3610 001:025.875   - SysPowerUp
+T3610 001:026.121   -- Max. mem block: 0x000023F8
+T3610 001:026.145 - 198.907ms
+T3610 001:026.195 JLINK_GetId()
+T3610 001:026.878 - 0.681ms returns 0x6BA02477
+T3610 001:042.274 JLINK_GetFirmwareString(...)
+T3610 001:042.318 - 0.043ms
+T3610 006:861.706 JLINK_SWO_Control(JLINKARM_SWO_CMD_GET_SPEED_INFO, ...)
+T3610 006:862.347 - 0.641ms returns 0x00
+T3610 006:862.401 JLINK_SWO_Control(JLINKARM_SWO_CMD_GET_SPEED_INFO, ...)
+T3610 006:862.875 - 0.474ms returns 0x00
+T3610 006:862.909 JLINK_SWO_Control(JLINKARM_SWO_CMD_GET_SPEED_INFO, ...)
+T3610 006:863.302 - 0.391ms returns 0x00
+T3610 006:863.353 JLINK_SWO_Control(JLINKARM_SWO_CMD_GET_SPEED_INFO, ...)
+T3610 006:863.871 - 0.516ms returns 0x00
+T3610 006:863.920 JLINK_SWO_Control(JLINKARM_SWO_CMD_GET_SPEED_INFO, ...)
+T3610 006:864.336 - 0.416ms returns 0x00
+T3610 006:865.036 JLINK_SWO_Control(JLINKARM_SWO_CMD_GET_SPEED_INFO, ...)
+T3610 006:865.605 - 0.568ms returns 0x00
+T3610 011:623.685 JLINK_Close()
+T3610 011:626.717   
+  ***** Warning: 
+T3610 011:626.762   CPU could not be halted
+T3610 011:626.786   OnDisconnectTarget() start
+T3610 011:626.802    J-Link Script File: Executing OnDisconnectTarget()
+T3610 011:626.840   CPU is running
+T3610 011:627.144   CPU_WriteMem(4 bytes @ 0x5C001004)
+T3610 011:627.181   CPU is running
+T3610 011:627.198   CPU_WriteMem(4 bytes @ 0x5C001034)
+T3610 011:627.217   CPU is running
+T3610 011:627.232   CPU_WriteMem(4 bytes @ 0x5C001054)
+T3610 011:627.257   OnDisconnectTarget() end - Took 447us
+T3610 011:630.315 - 6.630ms
+T3610 011:630.350   
+T3610 011:630.359   Closed

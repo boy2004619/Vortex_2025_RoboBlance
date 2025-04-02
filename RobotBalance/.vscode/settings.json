@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "lk_motor.h": "c",
+        "ys_motor.h": "c",
+        "controller.h": "c",
+        "balance.h": "c",
+        "imutask.h": "c",
+        "mahony_filter.h": "c",
+        "bsp_pwm.h": "c",
+        "servo_motor.h": "c",
+        "main.h": "c",
+        "supercap.h": "c",
+        "bsp_uart.h": "c",
+        "solvetrajectory.h": "c"
+    }
+}

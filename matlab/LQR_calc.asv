@@ -1,0 +1,147 @@
+clear;
+clc;
+
+syms x xd xdd     T Tp    thetadd thetad theta    phidd phid phi    P N PM NM    L LM;
+%% 参数设定
+% 均为标准单位制
+g = 9.81;  
+
+% 驱动轮
+LK_M = 0.963;       %LK电机总质量
+
+R = 0.099;          %轮子半径
+mw = 0.8308;%0.793;         %轮子质量(加上了转子质量)
+Iw = 0.003337; %mw*R^2/2; %0.00777;%轮子转动惯量
+
+% 大腿
+l_active_leg = 0.15; 
+m_active_leg = 0.143;
+% 小腿
+l_slave_leg = 0.27; 
+F_m_slave_leg = 0.468; %前小腿质量
+B_m_slave_leg = 0.307; %后小腿质量
+m_slave_leg = (F_m_slave_leg + B_m_slave_leg)/2;
+% 关节间距
+joint_distance = 0.15;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+% 摆杆
+mp = (m_active_leg*2 + F_m_slave_leg + B_m_slave_leg) + 0.728;  % 需要加上定子质量
+%mp = (m_active_leg + m_slave_leg)*2 + 0.728;  % 需要加上定子质量
+Ip = mp*L^2/3;  %摆杆转动惯量
+
+% 机体
+M = 7+6;        %机体重量
+l = -0.0231;    %机体质心到关节电机转轴的距离
+IM = 0.221;     %0.124;
+
+%% 经典力学方程
+fu1=N-NM==mp*(xdd+L*(thetadd*cos(theta)-thetad*thetad*sin(theta)));
+fu2=P-PM-mp*g==mp*L*(-thetadd*sin(theta)-thetad*thetad*cos(theta));
+fu3=NM==M*(xdd+(L+LM)*(thetadd*cos(theta)-thetad*thetad*sin(theta))-l*(phidd*cos(phi)-phid*phid*sin(phi)));
+fu4=PM-M*g==M*((L+LM)*(-thetadd*sin(theta)-thetad*thetad*cos(theta))+l*(-phidd*sin(phi)-phid*phid*cos(phi)));
+
+%% 不同部件之间的力求解
+[N,NM,P,PM]=solve(fu1,fu2,fu3,fu4,N,NM,P,PM);
+f1=xdd==(T-N*R)/(Iw/R+mw*R);
+f2=Ip*thetadd==(P*L+PM*LM)*sin(theta)-(N*L+NM*LM)*cos(theta)-T+Tp;
+f3=IM*phidd==Tp+NM*l*cos(phi)+PM*l*sin(phi);
+[xdd,thetadd,phidd]=solve(f1,f2,f3,xdd,thetadd,phidd);
+
+%% 计算雅可比矩阵A and B
+func=[thetad,thetadd,xd,xdd,phid,phidd];
+A_lin_model=jacobian(func,[theta,thetad,x,xd,phi,phid]);
+temp_A=subs(A_lin_model,[theta,thetad,xd,phi,phid],zeros(1,5));
+final_A=simplify(temp_A);
+
+B_lin_model=jacobian(func,[T Tp]);
+temp_B=subs(B_lin_model,[theta,thetad,xd,phi,phid],zeros(1,5));
+final_B=simplify(temp_B);
+
+%% 计算不同腿长下LQR增益K
+L_var = 0.05;   % 摆杆质心到驱动轮轴的距离，为腿长的一半
+
+% Q_mat = diag([1,1,500,100,5000,1]);
+% R_mat = diag([1,1]);
+
+Q_mat = diag([1,1,100,1,3000,100]);
+R_mat = diag([1,0.25]);  %轮  关节
+
+%Q_mat = diag([200,1,200,100,3000,1]);
+%Q_mat = diag([1,1,1,1,3000,1]);
+
+%R_mat = diag([0.25,0.25]);
+
+K = zeros(20,12);
+leg_len = zeros(20,1);
+for i=1:25
+    L_var = L_var + 0.005;
+    leg_len(i) = L_var*2;
+    A = double(subs(final_A, [L LM], [L_var L_var]));
+    B = double(subs(final_B, [L LM], [L_var L_var]));
+    KK = lqrd(A, B, Q_mat, R_mat, 0.001);
+    KK_t=KK.';
+    K(i,:)=KK_t(:);
+end
+
+% for i=1:33
+%     L_var = L_var + 0.005;
+%     leg_len(i) = L_var*2;
+%     A = double(subs(final_A, [L LM], [L_var L_var]));
+%     B = double(subs(final_B, [L LM], [L_var L_var]));
+% 
+%     if(abs(L_var - 0.05) < 1e-6)
+%     myK = lqrd(A, B, Q_mat, R_mat, 0.001);
+%     end
+% 
+%     KK = lqrd(A, B, Q_mat, R_mat, 0.001);
+%     KK_t=KK.';
+%     K(i,:)=KK_t(:);
+% end
+
+%% 不同腿长下二项式拟合K
+K_cons=zeros(12,3);  
+
+for i=1:12
+    res=fit(leg_len,K(:,i),"poly2");
+    K_cons(i,:)=[res.p1, res.p2, res.p3];
+end
+
+for j=1:12
+    for i=1:3
+        fprintf("%f,",K_cons(j,i));
+    end
+    fprintf("\n");
+end
+
+%% 不同腿长下项式拟合K
+% K_cons=zeros(12,4);  
+% 
+% for i=1:12
+%     res=fit(leg_len,K(:,i),"poly3");
+%     K_cons(i,:)=[res.p1, res.p2, res.p3,res.p4];
+%     %res=polyfit(leg_len,K(:,i),2);
+%     %K_cons(i,:)=[res.p1, res.p2, res.p3,res.p4];
+% end
+% 
+% for j=1:12
+%     for i=1:4
+%         fprintf("%f,",K_cons(j,i));
+%     end
+%     fprintf("\n");
+% end
+%% 不同腿长下二项式拟合K
+% K_cons=zeros(12,4);  
+% rsquare_values = zeros(12,1);  % 初始化一个数组来存储每个增益参数的R-squared值
+% 
+% for i=1:12
+%     [res, gof] = fit(leg_len, K(:,i), "poly3");  % 使用fit函数进行拟合，并返回拟合优度
+%     K_cons(i,:) = [res.p1, res.p2, res.p3,res.p4];  % 存储拟合参数
+%     rsquare_values(i) = gof.rsquare;  % 存储R-squared值
+% end
+% 
+% % 打印拟合参数和拟合度
+% for j=1:12
+%     for i=1:4
+%         fprintf("%f,", K_cons(j,i));
+%     end
+%     fprintf(" R-squared: %f\n", rsquare_values(j));
+% end

@@ -1,0 +1,457 @@
+{
+  "name": "RobotBalance",
+  "type": "ARM",
+  "dependenceList": [],
+  "srcDirs": [
+    "Robot_APP",
+    "Core",
+    "Module",
+    "BSP",
+    "Task",
+    "USB_DEVICE",
+    "Middlewares"
+  ],
+  "virtualFolder": {
+    "name": "<virtual_root>",
+    "files": [],
+    "folders": [
+      {
+        "name": "::CMSIS",
+        "files": [],
+        "folders": []
+      },
+      {
+        "name": "Application",
+        "files": [],
+        "folders": [
+          {
+            "name": "MDK-ARM",
+            "files": [
+              {
+                "path": "MDK-ARM/startup_stm32h723xx.s"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "User",
+            "files": [],
+            "folders": [
+              {
+                "name": "Core",
+                "files": [
+                  {
+                    "path": "Core/Src/fdcan.c"
+                  },
+                  {
+                    "path": "Core/Src/freertos.c"
+                  },
+                  {
+                    "path": "Core/Src/gpio.c"
+                  },
+                  {
+                    "path": "Core/Src/main.c"
+                  },
+                  {
+                    "path": "Core/Src/stm32h7xx_hal_msp.c"
+                  },
+                  {
+                    "path": "Core/Src/stm32h7xx_hal_timebase_tim.c"
+                  },
+                  {
+                    "path": "Core/Src/stm32h7xx_it.c"
+                  },
+                  {
+                    "path": "Core/Src/tim.c"
+                  },
+                  {
+                    "path": "Core/Src/usart.c"
+                  }
+                ],
+                "folders": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "arm_math",
+        "files": [
+          {
+            "path": "Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_add_f32.c"
+          },
+          {
+            "path": "Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_init_f32.c"
+          },
+          {
+            "path": "Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_inverse_f32.c"
+          },
+          {
+            "path": "Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_mult_f32.c"
+          },
+          {
+            "path": "Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_sub_f32.c"
+          },
+          {
+            "path": "Drivers/CMSIS/DSP/Source/MatrixFunctions/arm_mat_trans_f32.c"
+          },
+          {
+            "path": "Drivers/CMSIS/DSP/Lib/ARM/arm_cortexM7lfdp_math.lib"
+          }
+        ],
+        "folders": []
+      },
+      {
+        "name": "Drivers",
+        "files": [],
+        "folders": [
+          {
+            "name": "CMSIS",
+            "files": [
+              {
+                "path": "Core/Src/system_stm32h7xx.c"
+              }
+            ],
+            "folders": []
+          },
+          {
+            "name": "STM32H7xx_HAL_Driver",
+            "files": [
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_spi.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_ll_usb.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd.c"
+              },
+              {
+                "path": "Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pcd_ex.c"
+              }
+            ],
+            "folders": []
+          }
+        ]
+      }
+    ]
+  },
+  "outDir": "build",
+  "deviceName": "STM32H723VGTx",
+  "packDir": ".pack/Keil/STM32F7xx_DFP.2.12.0",
+  "miscInfo": {
+    "uid": "0c1cb866a2d95afb3a1e9d972e957ed1"
+  },
+  "targets": {
+    "RobotBalance": {
+      "excludeList": [
+        "<virtual_root>/BSP",
+        "<virtual_root>/Task",
+        "<virtual_root>/Middlewares",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_1.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_2.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_3.c",
+        "Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_5.c",
+        "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_conf_template.c",
+        "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_desc_template.c"
+      ],
+      "toolchain": "AC5",
+      "compileConfig": {
+        "cpuType": "Cortex-M7",
+        "floatingPointHardware": "double",
+        "scatterFilePath": "",
+        "useCustomScatterFile": false,
+        "storageLayout": {
+          "RAM": [
+            {
+              "tag": "RAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "RAM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x20000000",
+                "size": "0x20000"
+              },
+              "isChecked": true,
+              "noInit": false
+            },
+            {
+              "tag": "IRAM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x24000000",
+                "size": "0x50000"
+              },
+              "isChecked": true,
+              "noInit": false
+            }
+          ],
+          "ROM": [
+            {
+              "tag": "ROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "ROM",
+              "id": 3,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            },
+            {
+              "tag": "IROM",
+              "id": 1,
+              "mem": {
+                "startAddr": "0x8000000",
+                "size": "0x100000"
+              },
+              "isChecked": true,
+              "isStartup": true
+            },
+            {
+              "tag": "IROM",
+              "id": 2,
+              "mem": {
+                "startAddr": "0x0",
+                "size": "0x0"
+              },
+              "isChecked": false,
+              "isStartup": false
+            }
+          ]
+        },
+        "options": "null"
+      },
+      "uploader": "OpenOCD",
+      "uploadConfig": {
+        "bin": "",
+        "target": "stm32h7x",
+        "interface": "cmsis-dap",
+        "baseAddr": "0x08000000"
+      },
+      "uploadConfigMap": {
+        "JLink": {
+          "bin": "",
+          "baseAddr": "",
+          "cpuInfo": {
+            "vendor": "ST",
+            "cpuName": "STM32H723VG"
+          },
+          "proType": 1,
+          "speed": 8000,
+          "otherCmds": ""
+        },
+        "STLink": {
+          "bin": "build\\RobotBalance\\RobotBalance.elf",
+          "proType": "SWD",
+          "resetMode": "default",
+          "runAfterProgram": true,
+          "speed": 4000,
+          "address": "0x8000000",
+          "elFile": "None",
+          "optionBytes": ".eide/robotbalance.st.option.bytes.ini",
+          "otherCmds": ""
+        }
+      },
+      "custom_dep": {
+        "name": "default",
+        "incList": [
+          ".",
+          "Drivers/STM32H7xx_HAL_Driver/Inc",
+          "Drivers/STM32H7xx_HAL_Driver/Inc/Legacy",
+          "Middlewares/Third_Party/FreeRTOS/Source/include",
+          "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",
+          "Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F",
+          "Drivers/CMSIS/Device/ST/STM32H7xx/Include",
+          "Drivers/CMSIS/Include",
+          "Module/Remind",
+          "Module/Motor",
+          "Module/Motor/LK_Motor",
+          "Module/Motor/YS_Motor",
+          "Task",
+          "BSP/CAN",
+          "Middlewares/ST/ARM/DSP/Inc",
+          "Drivers/CMSIS/DSP/Source/MatrixFunctions",
+          "BSP/dwt",
+          ".cmsis/include",
+          "MDK-ARM/RTE/_RobotBalance",
+          "Robot_APP/chassis",
+          "Module/CRC",
+          "Module/algorithm",
+          "Core/Inc",
+          "BSP/UART",
+          "Module/Remote/DR16",
+          "Module/Motor/DM_Motor",
+          "Robot_APP",
+          "Module/IMU/N100",
+          "Task/MotorTask",
+          "Task/ImuTask",
+          "Module/IMU",
+          "Module/IMU/HWT906",
+          "Module/Motor/DJI_Motor",
+          "Module/IMU/BMI088",
+          "Module/algorithm/mahony",
+          "BSP/PWM",
+          "Robot_APP/gimbal",
+          "Robot_APP/shoot",
+          "Module/SuperCap",
+          "Module/IMU/CH040",
+          "Module/Referee",
+          "Module/Motor/Servo_motor",
+          "Module/Remote/PC_Ctrl",
+          "USB_DEVICE/App",
+          "USB_DEVICE/Target",
+          "Middlewares/ST/STM32_USB_Device_Library/Core/Inc",
+          "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc",
+          "Module/Vision/SolveTrajectory",
+          "Module/Vision"
+        ],
+        "libList": [],
+        "defineList": [
+          "USE_HAL_DRIVER",
+          "STM32H723xx",
+          "ARM_MATH_CM7",
+          "__CC_ARM",
+          "__TARGET_FPU_VFP",
+          "__FPU_USED=1U",
+          "__FPU_PRESENT=1U"
+        ]
+      },
+      "builderOptions": {
+        "AC5": {
+          "version": 4,
+          "beforeBuildTasks": [],
+          "afterBuildTasks": [],
+          "global": {
+            "output-debug-info": "enable",
+            "use-microLIB": true
+          },
+          "c/cpp-compiler": {
+            "optimization": "level-0",
+            "one-elf-section-per-function": true,
+            "c99-mode": true,
+            "C_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "CXX_FLAGS": "--diag_suppress=1 --diag_suppress=1295",
+            "warnings": "all-warnings",
+            "gnu-extensions": true
+          },
+          "asm-compiler": {},
+          "linker": {
+            "output-format": "elf"
+          }
+        }
+      }
+    }
+  },
+  "version": "3.5"
+}
